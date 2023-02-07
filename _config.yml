@@ -209,3 +209,5 @@ jekyll-archives:
 #--------------------------jamie add-------------------------------------
 # jekyll在默认情况下，如果文件名的时间超过当前系统时间，会跳过编译。设置future为true，可忽略时间，不会报错。
 future: true
+# baidu-analysis
+baidu-analysis: 8904248b38803ab6e26c2f232087c297
