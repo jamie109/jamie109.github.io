@@ -128,4 +128,3 @@ I-->J(每一个进程都会配置PCB 从结构上看 进程由程序段,数据�
 ![20230208132732](https://cdn.jsdelivr.net/gh/jamie109/my-img/for-VSCode/20230208132732.png)
 
 > thanks for [B站王道计算机教育](https://www.bilibili.com/video/BV1YE411D7nH?p=8&spm_id_from=pageDriver&vd_source=38881132948112534788036151fc388f)
-> thanks for [ZaxTyson的OS思维导图](https://mubu.com/doc/Cd-Y4YOfkh)

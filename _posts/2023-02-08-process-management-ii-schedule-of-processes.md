@@ -214,4 +214,3 @@ CPU忙碌时间占总时间的比例。
 
 
 > thanks for [B站王道计算机教育](https://www.bilibili.com/video/BV1YE411D7nH?p=8&spm_id_from=pageDriver&vd_source=38881132948112534788036151fc388f)
-> thanks for [ZaxTyson的OS思维导图](https://mubu.com/doc/Cd-Y4YOfkh)
