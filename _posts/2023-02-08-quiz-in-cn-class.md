@@ -63,4 +63,8 @@ D.快速回复， cwnd= 48, ssthresh=40
   ![Annotation_20230301_213125](https://cdn.jsdelivr.net/gh/jamie109/my-img/for-VSCode/Annotation_20230301_213125.jpg)
 
   
-* 第四章，B、C、ABCD
+* 第四章，B、C、ABCD    
+  第三题答案解析，注意是30个IP地址，每个聚合的地址应该包含2的幂个地址，这个聚合的地址中的每个地址应该都与题目中给出的地址有对应，不能聚合地址包含的地址比题目中给出的多。   
+  16+8+4+2.
+  ![20230302154211](https://cdn.jsdelivr.net/gh/jamie109/my-img/for-VSCode/20230302154211.png)
+* 
