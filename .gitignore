@@ -20,7 +20,9 @@ Gemfile.lock
 node_modules
 package-lock.json
 # 忽略的blog
+# del all
 _posts/*.md
+#
 _posts/2023-02-14-数据安全-密码基础.md
 _posts/2023-02-14-vmware安装ubuntu及其使用记录.md
 _posts/2023-02-13-anaconda常用命令.md
