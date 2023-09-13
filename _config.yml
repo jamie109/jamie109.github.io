@@ -1,5 +1,8 @@
 # The Site Configuration
-
+############更换端口号###########################
+############修改之后执行bundle exec jekyll serve --incremental######################
+#port: 4001
+########################
 # Import the theme
 theme: jekyll-theme-chirpy
 
@@ -21,7 +24,7 @@ timezone: Asia/Shanghai
 
 title: Jamie109 Blog                          # the main title
 
-tagline: wanna leave some traces   # it will display as the sub-title
+tagline: Good design demands good compromises. # wanna leave some traces   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
    description description description
