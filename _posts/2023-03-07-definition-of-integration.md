@@ -6,7 +6,7 @@ author: jamie109
 categories: [INTEGRATION, guidence]
 mermaid: true 
 math: true
-pin: true
+pin: false
 ---
 > wiki
 
