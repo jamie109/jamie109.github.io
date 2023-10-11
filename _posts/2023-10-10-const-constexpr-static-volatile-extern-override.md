@@ -8,21 +8,6 @@ mermaid: true
 math: true
 ---
 
-[C++11关键字constexpr看这篇就够了](https://blog.csdn.net/yao_hou/article/details/109301290)
-
-[浅谈 C++ 中的 const 和 constexpr](https://zhuanlan.zhihu.com/p/20206577)
-
-[C++中const用于函数重载](https://blog.csdn.net/qq_25800311/article/details/87395467)
-
-[C++函数重载(2) - 不能被重载的函数](https://blog.csdn.net/shltsh/article/details/45938663)
-
-[C语言正确使用extern关键字](https://blog.csdn.net/xingjiarong/article/details/47656339)
-
-[C语言丨深入理解volatile关键字](https://zhuanlan.zhihu.com/p/343688629)
-
-[c语言中static关键字用法详解](https://blog.csdn.net/guotianqing/article/details/79828100)
-
-
 ## 1、constexpr
 
 C++11中新增加了用于指示**常量表达式**的constexpr关键字。
@@ -56,16 +41,32 @@ constexpr构造函数必须有⼀个空的函数体，即所有成员变量的�
 
 ## 2、const
 
+### 重载
+
 const在类中修饰成员函数（写在参数后面的`<类型标志符>函数名（参数表）const；`），可以作为重载的条件，const是函数类型的一部分，在**实现部分也要带该关键字**。
 
-常成员函数不能更新类的成员变量，也不能调用该类中没有用const修饰的成员函数，只能调用常成员函数。
-
-非常量对象也**可以**调用常成员函数，但是如果有重载的非常成员函数则会优先调用非常成员函数。
+一个函数名字后有const，这个函数必定是成员函数（普通函数后面不能有const）。**常成员函数不能更新类的成员变量，也不能调用该类中没有用const修饰的成员函数**，只能调用常成员函数。非常量对象也**可以**调用常成员函数，但是如果有重载的非常成员函数则会优先调用非常成员函数。
 
 const作为参数时，只有它**修饰的是指针、引用**时，才能作为重载的条件。`fun(char *a)和fun(const char *a)`，这里加了const，const修饰`*a`，也就是说，**不能通过这个指针去改它所指向位置存储的变量**；引用也是同样的道理。而如果const只是修饰int这种类型数据，由于函数参数值传递，无论函数体里面怎么对int参数修改，都影响不到人家外面的int变量，所以加不加const无所谓。
 
-如果有一个函数参数用const修饰，在函数体中就不能改变这个参数。
+对于函数的参数，不管是什么数据类型，也不管是指针传递，还是引用传递，只要加了 const 修饰，就可以防止函数内意外修改该参数，起到保护作用。**如果有一个函数参数用const修饰，在函数体中就不能改变这个参数。**
 
+### 迭代器
+
+**STL迭代器**以指针为根据塑模出来，所以迭代器的作用就像个T指针。**声明迭代器为const就像声明指针为const一样**（即声明一个T const 指针），表示这个迭代器**不得指向不同的东西**，但它所指的东西的值是可以改动的。
+
+如果希望迭代器所指的东西不可被改动（即希望STL模拟一个const T* 指针），需要使用const_iterator。
+
+### 函数返回类型
+
+const 作为函数返回类型，最终目的是希望调用函数时**将返回值作为常量**处理。
+
+1. 返回字面常量。`return 100;`
+2. 用 const 修饰返回的指针或引用， **返回的是一个右值**，保护**指针或引用的内容不被修改**。`const int*`或者`const int&`，const修饰的实际上是*p、&p，就是地址中存的数据或者被引用的数，所以它们不能修改了。
+
+   **返回值是引用**的函数，可以肯定的是这个引用必然不是临时对象的引用，因此一定是成员变量或者是函数参数，所以在返回的时候为了避免其成为左值被修改，就需要加上const关键字来修饰。
+
+   如果函数的返回类型是**内置类型**如int，修改返回值本身就是**不合法**的。所以 const 返回值是处理返回类型为用户定义类型的情况。
 
 ## 3、volatile
 
@@ -133,3 +134,20 @@ static 变量的生命周期是从程序开始到结束。
 ## 6、override
 
 写在子类继承了的父类的虚函数的后面，编译器看到有override关键字，**会检查父类的这个函数是不是虚函数**，相当于增加了一种保障机制吧。
+
+
+[C++11关键字constexpr看这篇就够了](https://blog.csdn.net/yao_hou/article/details/109301290)
+
+[浅谈 C++ 中的 const 和 constexpr](https://zhuanlan.zhihu.com/p/20206577)
+
+[C++中const用于函数重载](https://blog.csdn.net/qq_25800311/article/details/87395467)
+
+[C++中const的强大用法：修饰函数参数/返回值/函数体](https://zhuanlan.zhihu.com/p/256423512)
+
+[C++函数重载(2) - 不能被重载的函数](https://blog.csdn.net/shltsh/article/details/45938663)
+
+[C语言正确使用extern关键字](https://blog.csdn.net/xingjiarong/article/details/47656339)
+
+[C语言丨深入理解volatile关键字](https://zhuanlan.zhihu.com/p/343688629)
+
+[c语言中static关键字用法详解](https://blog.csdn.net/guotianqing/article/details/79828100)
